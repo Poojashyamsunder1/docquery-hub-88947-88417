@@ -27,6 +27,20 @@ Launches the test runner in interactive watch mode.
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+## Environment Variables
+
+For local development, create a `.env` file in this folder and provide the following:
+
+```
+REACT_APP_SUPABASE_URL=<your-supabase-url>
+REACT_APP_SUPABASE_KEY=<your-supabase-key>
+REACT_APP_BACKEND_API_URL=<your-backend-api-url>   # e.g., http://localhost:8000 or deployed backend
+```
+
+If not provided, default public values will be used for demonstration purposes.
+
+---
+
 ## Customization
 
 ### Colors
