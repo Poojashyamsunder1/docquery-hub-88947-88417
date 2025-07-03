@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
+import PDFPreview from "./PDFPreview";
 
 // PUBLIC_INTERFACE
 function App() {
@@ -353,7 +354,7 @@ function App() {
                 </button>
                 {pdfFile && <span style={{ marginLeft: 12, fontSize: 14 }}>{pdfFile.name}</span>}
               </div>
-              {/* PDF Preview (temporarily unavailable) */}
+              {/* PDF Preview */}
               {uploadedFileUrl && (
                 <div style={{
                   background: "#fff",
@@ -362,13 +363,14 @@ function App() {
                   padding: 12,
                   margin: "auto",
                   boxShadow: "0 2px 6px #0001",
-                  maxHeight: 400,
-                  minHeight: 40,
+                  maxHeight: 420,
+                  minHeight: 60,
                   overflow: "auto",
                 }}>
-                  <h4 style={{ marginBottom: 4 }}>{uploadedFileName}</h4>
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", color: "gray", fontSize: 14, minHeight: 30 }}>
-                    PDF preview not available in this build.
+                  <h4 style={{ marginBottom: 8 }}>{uploadedFileName}</h4>
+                  <PDFPreview pdfUrl={uploadedFileUrl} width={340} height={400} />
+                  <div style={{ color: "gray", fontSize: 13, marginTop: 7 }}>
+                    If preview fails, it could be due to file permissions or browser restrictions. You can still download and open your file directly.
                   </div>
                 </div>
               )}
